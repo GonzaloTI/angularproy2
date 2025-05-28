@@ -11,4 +11,9 @@ import { RouterModule } from '@angular/router'; // Importa RouterModule
 })
 export class AppComponent {
   title = 'IHC';
+toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar?.classList.toggle('collapsed');
+}
+  
 }

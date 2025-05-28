@@ -3,66 +3,235 @@
     <h3 class="mb-0 fw-bold">Detalles de la Actividad</h3>
     <div class="text-muted" style="font-size: 1rem;">Actividad para Saturnino Mamani</div>
   </div>
-  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
 </div>
 
-<!-- Tabs de canales -->
+<!-- Tabs de canales: solo se muestra el seleccionado -->
 <ul class="nav nav-tabs my-3 border-0" style="background: #f7f7f7; border-radius: 8px;">
-  <li class="nav-item">
-    <a class="nav-link"
-       [ngClass]="{ 'active fw-bold': canal === 'llamada', 'text-muted': canal !== 'llamada' }">
+  <li class="nav-item" *ngIf="canal === 'llamada'">
+    <a class="nav-link active fw-bold">
       <i class="fas fa-phone-alt me-2"></i>Llamada
     </a>
   </li>
-  <!-- Puedes agregar más tabs si quieres mostrar otros canales -->
+  <li class="nav-item" *ngIf="canal === 'correo'">
+    <a class="nav-link active fw-bold">
+      <i class="fas fa-envelope me-2"></i>Correo
+    </a>
+  </li>
+  <li class="nav-item" *ngIf="canal === 'instagram'">
+    <a class="nav-link active fw-bold">
+      <i class="fab fa-instagram me-2"></i>Instagram
+    </a>
+  </li>
+  <li class="nav-item" *ngIf="canal === 'facebook'">
+    <a class="nav-link active fw-bold">
+      <i class="fab fa-facebook-f me-2"></i>Facebook
+    </a>
+  </li>
 </ul>
 
-<!-- Cajas de contacto y fecha/hora -->
-<div class="row g-3 mb-3">
-  <div class="col-md-6">
-    <div class="border rounded p-3 h-100">
-      <div class="fw-bold mb-2">Numeros de Contacto</div>
-      <div>1. +591 45353634 <i class="far fa-copy ms-1" style="cursor:pointer;"></i></div>
-      <div>2. +591 67580042 <i class="far fa-copy ms-1" style="cursor:pointer;"></i></div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="border rounded p-3 h-100">
-      <div class="fw-bold mb-2">Fecha y Hora</div>
-      <div class="mb-1">
-        <i class="far fa-clock me-2 text-primary"></i>05:20 PM
-      </div>
-      <div>
-        <i class="far fa-calendar-alt me-2 text-primary"></i>01 / 04 / 2099
+<!-- Llamada -->
+<div *ngIf="canal === 'llamada'">
+  <div class="row g-3 mb-3">
+    <div class="col-md-6">
+      <div class="border rounded p-3 h-100">
+        <div class="fw-bold mb-2">Numeros de Contacto</div>
+        <div>1. +591 45353634 <i class="far fa-copy ms-1" style="cursor:pointer;"></i></div>
+        <div>2. +591 67580042 <i class="far fa-copy ms-1" style="cursor:pointer;"></i></div>
       </div>
     </div>
+    <div class="col-md-6">
+      <div class="border rounded p-3 h-100">
+        <div class="fw-bold mb-2">Fecha y Hora</div>
+        <div class="mb-1">
+          <i class="far fa-clock me-2 text-primary"></i>05:20 PM
+        </div>
+        <div>
+          <i class="far fa-calendar-alt me-2 text-primary"></i>01 / 04 / 2099
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-<!-- Interacción -->
-<div class="mb-3">
-  <label class="form-label fw-semibold">Interaccion</label>
-  <textarea class="form-control" rows="2" readonly>Se llamo al  +591 45353634, nos respondio su madre , 
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Interaccion</label>
+    <textarea class="form-control" rows="2" readonly>
+Se llamo al  +591 45353634, nos respondio su madre ,
 dijo que su hijo si usa netflix
-y le interesa las suscripciones</textarea>
+y le interesa las suscripciones
+    </textarea>
+  </div>
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Resultado</label>
+    <textarea class="form-control" rows="2" readonly>
+Muestra interes pero no estaba presente al contestar la llamada
+    </textarea>
+  </div>
+  <div class="mb-4" style="width: 200px;">
+    <label class="form-label fw-semibold">Estado de la actividad</label>
+    <select class="form-select" disabled>
+      <option selected>exitosa</option>
+      <option>pendiente</option>
+      <option>fallida</option>
+    </select>
+  </div>
 </div>
 
-<!-- Resultado -->
-<div class="mb-3">
-  <label class="form-label fw-semibold">Resultado</label>
-  <textarea class="form-control" rows="2" readonly>Muestra interes pero no estaba presente al contestar la llamada</textarea>
+<!-- Correo -->
+<div *ngIf="canal === 'correo'">
+  <div class="row g-3 mb-3">
+    <div class="col-md-6">
+      <div class="border rounded p-3 h-100">
+        <div class="fw-bold mb-2">Correo de Contacto</div>
+        <div>saturnino99qgmail.com</div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="border rounded p-3 h-100 d-flex flex-column justify-content-between">
+          <div>
+            <div class="mb-1 d-flex align-items-center justify-content-between">
+              <span>
+                <i class="far fa-clock me-2 text-primary"></i>05:20 PM
+              </span>
+             
+                <button  class="btn btn-primary px-4 fw-bold" style="background-color: #253b8a;">
+                  Enviar <i class="fas fa-envelope ms-2"></i>
+                </button>
+            </div>
+            <div>
+              <i class="far fa-calendar-alt me-2 text-primary"></i>01 / 04 / 2099
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Interaccion</label>
+    <textarea class="form-control" rows="2" readonly>
+Se envió correo con información de suscripción.
+    </textarea>
+  </div>
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Resultado</label>
+    <textarea class="form-control" rows="2" readonly>
+El usuario respondió solicitando más detalles.
+    </textarea>
+  </div>
+  <div class="mb-4" style="width: 200px;">
+    <label class="form-label fw-semibold">Estado de la actividad</label>
+    <select class="form-select" >
+      <option selected>exitosa</option>
+      <option>pendiente</option>
+      <option>fallida</option>
+    </select>
+  </div>
 </div>
 
-<!-- Estado de la actividad -->
-<div class="mb-4">
-  <label class="form-label fw-semibold">Estado de la actividad</label>
-  <select class="form-select" disabled>
-    <option selected>exitosa</option>
-    <option>pendiente</option>
-    <option>fallida</option>
-  </select>
+<!-- Instagram -->
+<div *ngIf="canal === 'instagram'">
+  <div class="row g-3 mb-3">
+    <div class="col-md-6">
+      <div class="border rounded p-3 h-100">
+        <div class="fw-bold mb-2">Instagram</div>
+        <div>qsaturnino_star</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="border rounded p-3 h-100 d-flex flex-column justify-content-between">
+          <div>
+            <div class="mb-1 d-flex align-items-center justify-content-between">
+              <span>
+                <i class="far fa-clock me-2 text-primary"></i>05:20 PM
+              </span>
+             
+                <button  class="btn btn-primary px-4 fw-bold" style="background-color: #253b8a;">
+                Enviar Mensaje <i class=" ms-2"></i>
+                </button>
+            </div>
+            <div>
+              <i class="far fa-calendar-alt me-2 text-primary"></i>01 / 04 / 2099
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Interaccion</label>
+    <textarea class="form-control" rows="2" readonly>
+Se envió mensaje directo por Instagram.
+    </textarea>
+  </div>
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Resultado</label>
+    <textarea class="form-control" rows="2" readonly>
+El usuario visualizó el mensaje pero no respondió.
+    </textarea>
+  </div>
+  <div class="mb-4" style="width: 200px;">
+    <label class="form-label fw-semibold">Estado de la actividad</label>
+    <select class="form-select" >
+      <option selected>pendiente</option>
+      <option>exitosa</option>
+      <option>fallida</option>
+    </select>
+  </div>
+</div>
+
+<!-- Facebook -->
+<div *ngIf="canal === 'facebook'">
+  <div class="row g-3 mb-3">
+    <div class="col-md-6">
+      <div class="border rounded p-3 h-100">
+        <div class="fw-bold mb-2">Facebook</div>
+        <div>Saturnino Mamani</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="border rounded p-3 h-100 d-flex flex-column justify-content-between">
+          <div>
+            <div class="mb-1 d-flex align-items-center justify-content-between">
+              <span>
+                <i class="far fa-clock me-2 text-primary"></i>05:20 PM
+              </span>
+             
+              <button class="btn btn-primary px-4 fw-bold" style="background-color: #253b8a;">
+                Enviar <i class="fab fa-facebook-f ms-2"></i>
+              </button>
+            </div>
+            <div>
+              <i class="far fa-calendar-alt me-2 text-primary"></i>01 / 04 / 2099
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Interaccion</label>
+    <textarea class="form-control" rows="2" readonly>
+Se contactó por Facebook Messenger.
+    </textarea>
+  </div>
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Resultado</label>
+    <textarea class="form-control" rows="2" readonly>
+El usuario respondió positivamente.
+    </textarea>
+  </div>
+  <div class="mb-4" style="width: 200px;">
+    <label class="form-label fw-semibold">Estado de la actividad</label>
+    <select class="form-select"  >
+      <option selected>exitosa</option>
+      <option>pendiente</option>
+      <option>fallida</option>
+    </select>
+  </div>
 </div>
 
 <div class="d-flex justify-content-end gap-2">
-  <button class="btn btn-light border fw-bold px-4" data-bs-dismiss="modal">Cerrar</button>
-</div>
+    <button class="btn btn-light border fw-bold px-4" data-bs-dismiss="modal">Cerrar</button>
+    <button
+      class="btn btn-primary fw-bold px-4"
+      style="background-color: #253b8a;"
+      *ngIf="canal !== 'llamada'">
+      Guardar <i class="fas fa-save ms-2"></i>
+    </button>
+  </div>

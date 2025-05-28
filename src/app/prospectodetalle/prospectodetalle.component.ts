@@ -11,5 +11,5 @@ import { ModaldetalleactividadComponent } from '../modals/modaldetalleactividad/
   styleUrl: './prospectodetalle.component.css'
 })
 export class ProspectodetalleComponent {
-
+  canalDetalle: 'llamada' | 'correo' | 'instagram' | 'facebook' = 'llamada';
 }

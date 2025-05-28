@@ -1,0 +1,18 @@
+<!-- app.component.html -->
+<div class="container">
+  <!-- Barra lateral -->
+  <div class="sidebar">
+    <nav>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/prospectos">Prospectos </a></li>
+        <!-- Agregar más enlaces de navegación si es necesario -->
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Área principal donde se renderizan las vistas -->
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

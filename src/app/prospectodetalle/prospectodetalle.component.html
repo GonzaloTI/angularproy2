@@ -6,9 +6,10 @@
                 <span class="badge rounded-pill" style="background-color: #ffe4b3; color: #333; font-size: 1rem;">Prospecto</span>
             </h4>
         </div>
-        <button class="btn btn-primary fw-bold" style="background-color: #253b8a;">
+        <button class="btn btn-primary fw-bold" style="background-color: #253b8a;" data-bs-toggle="modal" data-bs-target="#miModal2">
             Cambiar Estado <i class="fas fa-pen-to-square ms-2"></i>
         </button>
+       
     </div>
     <!-- Fila de datos principales -->
     <div class="row g-3 mb-3">
@@ -59,13 +60,9 @@
             <button class="btn btn-light border fw-bold">
                 Filtrar <i class="fas fa-filter ms-1"></i>
             </button>
-            <button class="btn btn-primary fw-bold" style="background-color: #253b8a;">
+            <button class="btn btn-primary fw-bold" style="background-color: #253b8a;" data-bs-toggle="modal" data-bs-target="#miModal">
                 Contactar <i class="fas fa-comment-dots ms-1"></i>
             </button>
-
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#miModal">
-                Abrir modal
-              </button>
 
 
 
@@ -153,6 +150,24 @@
             <div class="modal-body">
             <!-- Aquí insertas tu componente -->
             <app-modalcontacto></app-modalcontacto>     
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+     <!-- Modal de Bootstrap -->
+     <div class="modal fade" id="miModal2" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+      
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+         
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+            <!-- Aquí insertas tu componente -->
+            <app-modalcambiarestado></app-modalcambiarestado>    
             </div>
         </div>
         </div>

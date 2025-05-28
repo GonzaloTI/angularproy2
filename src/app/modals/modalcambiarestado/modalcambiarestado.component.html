@@ -1,0 +1,66 @@
+<div class="container-fluid p-4" style="max-width: 1050px;">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="w-100 text-center fw-normal" style="color: #666;">Actualizacion de Estado de Prospecto</h2>
+  </div>
+  <form>
+    <div class="row">
+      <!-- Detalles -->
+      <div class="col-md-7">
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Detalles</label>
+          <textarea class="form-control" rows="9" placeholder="Informacion Relevante"></textarea>
+        </div>
+      </div>
+      <!-- Lado derecho -->
+      <div class="col-md-5">
+        <!-- Nivel de interes -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Nivel de interes</label>
+          <div class="input-group">
+            <input type="number" class="form-control" [value]="nivelInteres" min="0" max="100" readonly>
+            <button class="btn btn-primary" type="button" style="background-color: #253b8a;" (click)="incrementarInteres()">
+              <i class="fas fa-plus"></i>
+            </button>
+            <button class="btn btn-primary" type="button" style="background-color: #253b8a;" (click)="decrementarInteres()">
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Estado -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Estado</label>
+          <select class="form-select" [(ngModel)]="estado" name="estado">
+            <option>Negociacion</option>
+            <option>Prospecto</option>
+            <option>Suscrito</option>
+          </select>
+        </div>
+        <!-- Actualizacion de Intereses -->
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Actualizacion de Intereses</label>
+          <div class="input-group">
+            <select class="form-select" [(ngModel)]="interesSeleccionado" name="interesSeleccionado">
+              <option *ngFor="let interes of interesesDisponibles" [value]="interes">{{ interes }}</option>
+            </select>
+            <button class="btn btn-primary" type="button" style="background-color: #253b8a;" (click)="agregarInteres()">
+              <i class="fas fa-check"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Intereses actuales -->
+        <div class="mb-4">
+          <span *ngFor="let interes of interesesActuales" class="badge bg-light text-dark border me-2 mb-1" style="font-size:1.1em;">
+            {{ interes }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Botones -->
+    <div class="d-flex justify-content-end gap-2 mt-3">
+      <button type="button" class="btn btn-light border fw-bold px-4" data-bs-dismiss="modal">Cancelar</button>
+      <button type="submit" class="btn btn-primary fw-bold px-4" style="background-color: #253b8a;">
+        Guardar Registro <i class="fas fa-save ms-2"></i>
+      </button>
+    </div>
+  </form>
+</div>

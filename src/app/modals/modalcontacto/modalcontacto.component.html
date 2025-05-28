@@ -1,0 +1,141 @@
+<!-- Encabezado -->
+<div class="modal-header border-0 pb-0">
+  <div>
+    <h3 class="mb-0 fw-bold">Nueva Actividad</h3>
+    <div class="text-muted" style="font-size: 1rem;">Registrar una nueva actividad para Saturnino Mamani</div>
+  </div>
+
+</div>
+
+<!-- Tabs de canales -->
+
+    <ul class="nav nav-tabs my-3 border-0" style="background: #f7f7f7; border-radius: 8px;">
+        <li class="nav-item">
+          <a class="nav-link" 
+             [ngClass]="{ 'active fw-bold': canalActivo === 'llamada', 'text-muted': canalActivo !== 'llamada' }"
+             (click)="canalActivo = 'llamada'">
+            <i class="fas fa-phone-alt me-2"></i>Llamada
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             [ngClass]="{ 'active fw-bold': canalActivo === 'correo', 'text-muted': canalActivo !== 'correo' }"
+             (click)="canalActivo = 'correo'">
+            <i class="fas fa-envelope me-2"></i>Correo
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             [ngClass]="{ 'active fw-bold': canalActivo === 'instagram', 'text-muted': canalActivo !== 'instagram' }"
+             (click)="canalActivo = 'instagram'">
+            <i class="fab fa-instagram me-2"></i>Instagram
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             [ngClass]="{ 'active fw-bold': canalActivo === 'facebook', 'text-muted': canalActivo !== 'facebook' }"
+             (click)="canalActivo = 'facebook'">
+            <i class="fab fa-facebook-f me-2"></i>Facebook
+          </a>
+        </li>
+      </ul>
+      
+
+<!-- Cajas de contacto y fecha/hora -->
+<div class="row g-3 mb-3">
+  <div class="col-md-6">
+    <div class="border rounded p-3 h-100">
+      <div class="fw-bold mb-2">Numeros de Contacto</div>
+      <div>1. +591 45353634 <i class="far fa-copy ms-1" style="cursor:pointer;"></i></div>
+      <div>2. +591 67580042 <i class="far fa-copy ms-1" style="cursor:pointer;"></i></div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="border rounded p-3 h-100">
+      <div class="fw-bold mb-2">Fecha y Hora</div>
+      <div class="mb-1">
+        <i class="far fa-clock me-2 text-primary"></i>05:20 PM
+      </div>
+      <div>
+        <i class="far fa-calendar-alt me-2 text-primary"></i>01 / 04 / 2099
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contenido dinámico según el canal seleccionado -->
+<div *ngIf="canalActivo === 'llamada'">
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Interacción</label>
+    <textarea class="form-control" rows="2" placeholder="Resultado de la Interacción..."></textarea>
+  </div>
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Resultado</label>
+    <textarea class="form-control" rows="2" placeholder="Resultado de la Llamada..."></textarea>
+  </div>
+  <div class="mb-4">
+    <label class="form-label fw-semibold">Estado de la actividad</label>
+    <select class="form-select">
+      <option value="exitosa">exitosa</option>
+      <option value="pendiente">pendiente</option>
+      <option value="fallida">fallida</option>
+    </select>
+  </div>
+</div>
+
+<div *ngIf="canalActivo === 'correo'">
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Correo enviado</label>
+    <input class="form-control" type="email" placeholder="Correo destinatario...">
+  </div>
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Mensaje</label>
+    <textarea class="form-control" rows="2" placeholder="Mensaje enviado..."></textarea>
+  </div>
+  <div class="mb-4">
+    <label class="form-label fw-semibold">Estado de la actividad</label>
+    <select class="form-select">
+      <option value="enviado">enviado</option>
+      <option value="pendiente">pendiente</option>
+      <option value="fallido">fallido</option>
+    </select>
+  </div>
+</div>
+
+<div *ngIf="canalActivo === 'instagram'">
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Mensaje enviado</label>
+    <textarea class="form-control" rows="2" placeholder="Mensaje por Instagram..."></textarea>
+  </div>
+  <div class="mb-4">
+    <label class="form-label fw-semibold">Estado de la actividad</label>
+    <select class="form-select">
+      <option value="enviado">enviado</option>
+      <option value="pendiente">pendiente</option>
+      <option value="fallido">fallido</option>
+    </select>
+  </div>
+</div>
+
+<div *ngIf="canalActivo === 'facebook'">
+  <div class="mb-3">
+    <label class="form-label fw-semibold">Mensaje enviado</label>
+    <textarea class="form-control" rows="2" placeholder="Mensaje por Facebook..."></textarea>
+  </div>
+  <div class="mb-4">
+    <label class="form-label fw-semibold">Estado de la actividad</label>
+    <select class="form-select">
+      <option value="enviado">enviado</option>
+      <option value="pendiente">pendiente</option>
+      <option value="fallido">fallido</option>
+    </select>
+  </div>
+</div>
+
+<!-- Botones -->
+<div class="d-flex justify-content-end gap-2">
+  <button class="btn btn-light border fw-bold px-4" data-bs-dismiss="modal">Cancelar</button>
+  <button class="btn btn-primary fw-bold px-4" style="background-color: #253b8a;">
+    Guardar <i class="fas fa-save ms-2"></i>
+  </button>
+</div>

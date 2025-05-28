@@ -23,6 +23,8 @@ OS: win32 x64
 npm -v
 10.2.0
 
+npm install @fortawesome/fontawesome-free
+
 
 ng serve --open   // comando para correr angular
 

@@ -53,16 +53,153 @@
     <div class="card shadow-sm" style="border-left: 8px solid #ff0000; max-width: 600px;">
         <div class="card-body">
             <div class="d-flex justify-content-between align-items-center mb-1">
-              <h5 class="card-title d-flex align-items-center mb-0">
-                <i class="fa-brands fa-instagram me-2 text-primary"></i>
+                <h5 class="card-title d-flex align-items-center mb-0">
+                    <i class="fa-brands fa-instagram me-2 text-primary"></i>
 
-                Instagram
-              </h5>
-              <button class="btn btn-sm" style="background-color: #1F3A93; color:white;">Detalles</button>
+                    Instagram
+                </h5>
+                <button class="btn btn-sm" style="background-color: #1F3A93; color:white;">Detalles</button>
             </div>
             <small class="text-muted">28 de mayo de 2025</small>
             <p class="card-text mt-2">Este es el contenido de la card con una franja en el borde izquierdo.</p>
-          </div>
-          
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light">
+                    <tr>
+                        <th>Fecha creacion</th>
+                        <th>Nombre</th>
+                        <th>Nivel Interes</th>
+                        <th>Estado</th>
+                        <th class="text-center">Canal Contacto</th>
+                        <th class="text-center">Fecha ultimo contacto</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12/10/2025</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                    style="width: 45px; height: 45px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">John Doe</p>
+                                    <p class="text-muted mb-0">john.doegmail.com</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="fa-solid fa-star" style="color:#ecf007;"></span>
+                            <span class="fa-solid fa-star" style="color:#ecf007;"></span>
+                            <span class="fa-solid fa-star" style="color:#ecf007;"></span>
+                            <span class="fa-solid fa-star" style="color:#ecf007;"></span>
+                            <span class="fa-regular fa-star"></span>
+                        </td>
+                        <td>
+                            <app-status-badge class="d-flex" status="prospecto"></app-status-badge>
+                        </td>
+                        <td class="text-center">Instagram</td>
+                        <td class="text-center">12/10/2025</td>
+                        <td class="text-center">
+                            <div class="dropdown">
+                                <button class="btn btn-link btn-sm text-dark" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v"></i> <!-- o fa-ellipsis-h para horizontal -->
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="#">Editar</a></li>
+                                    <li><a class="dropdown-item" href="#">Eliminar</a></li>
+                                    <li><a class="dropdown-item" href="#">Ver detalles</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12/10/2025</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" class="rounded-circle" alt=""
+                                    style="width: 45px; height: 45px" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">Alex Ray</p>
+                                    <p class="text-muted mb-0">alex.raygmail.com</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="fa-solid fa-star" style="color:#ecf007;"></span>
+                            <span class="fa-solid fa-star" style="color:#ecf007;"></span>
+                            <span class="fa-solid fa-star" style="color:#ecf007;"></span>
+                            <span class="fa-regular fa-star"></span>
+                            <span class="fa-regular fa-star"></span>
+                        </td>
+                        <td>
+                            <app-status-badge class="d-flex" status="prospecto"></app-status-badge>
+                        </td>
+                        <td class="text-center">Instagram</td>
+                        <td class="text-center">12/10/2025</td>
+                        <td class="text-center">
+                            <div class="dropdown">
+                                <button class="btn btn-link btn-sm text-dark" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v"></i> <!-- o fa-ellipsis-h para horizontal -->
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="#">Editar</a></li>
+                                    <li><a class="dropdown-item" href="#">Eliminar</a></li>
+                                    <li><a class="dropdown-item" href="#">Ver detalles</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12/10/2025</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/7.jpg" class="rounded-circle" alt=""
+                                    style="width: 45px; height: 45px" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">Kate Hunington</p>
+                                    <p class="text-muted mb-0">kate.huningtongmail.com</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="fa-solid fa-star" style="color:#ecf007;"></span>
+                            <span class="fa-solid fa-star" style="color:#ecf007;"></span>
+                            <span class="fa-solid fa-star" style="color:#ecf007;"></span>
+                            <span class="fa-regular fa-star"></span>
+                            <span class="fa-regular fa-star"></span>
+                        </td>
+                        <td>
+                            <app-status-badge class="d-flex" status="suscrito"></app-status-badge>
+                        </td>
+                        <td class="text-center">Instagram</td>
+                        <td class="text-center">12/10/2025</td>
+                        <td class="text-center">
+                            <div class="dropdown">
+                                <button class="btn btn-link btn-sm text-dark" type="button" id="dropdownMenuButton"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v"></i> <!-- o fa-ellipsis-h para horizontal -->
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item" href="#">Editar</a></li>
+                                    <li><a class="dropdown-item" href="#">Eliminar</a></li>
+                                    <li><a class="dropdown-item" href="#">Ver detalles</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

@@ -6,7 +6,7 @@ import { StatusBadgeComponent } from '../../status-badge/status-badge.component'
   standalone: true,
   imports: [ StatusBadgeComponent ],
   templateUrl: './templates.component.html',
-  styleUrl: './templates.component.css'
+  styleUrls: ['./templates.component.css'] // ✅ así está bien
 })
 export class TemplatesComponent {
 

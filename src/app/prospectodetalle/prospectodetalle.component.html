@@ -80,7 +80,8 @@
                         <div class="text-muted" style="font-size: 0.9em;">Resultado: No respondió</div>
                     </div>
                     <div class="d-flex flex-column align-items-center ms-2">
-                        <button class="btn btn-primary btn-sm mb-1">Detalles</button>
+                        <button class="btn btn-primary btn-sm mb-1" data-bs-toggle="modal" data-bs-target="#miModal3">Detalles</button>
+
                         <span class="text-danger fs-4"><i class="fas fa-times"></i></span>
                     </div>
                 </div>
@@ -168,6 +169,22 @@
             <div class="modal-body">
             <!-- Aquí insertas tu componente -->
             <app-modalcambiarestado></app-modalcambiarestado>    
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal de Bootstrap -->
+    <div class="modal fade" id="miModal3" tabindex="-1" aria-labelledby="miModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+         
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+            <!-- Aquí insertas tu componente -->
+            <app-modaldetalleactividad></app-modaldetalleactividad>     
             </div>
         </div>
         </div>

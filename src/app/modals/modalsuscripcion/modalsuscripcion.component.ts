@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common'; // <-- Importa esto
 
 @Component({
@@ -10,6 +10,10 @@ import { CommonModule } from '@angular/common'; // <-- Importa esto
   styleUrl: './modalsuscripcion.component.css'
 })
 export class ModalsuscripcionComponent {
+  @ViewChild('step1Form') step1Form!: NgForm;
+  @ViewChild('step2Form') step2Form!: NgForm;
+  @ViewChild('step3Form') step3Form!: NgForm;
+
   step = 1;
 
   cliente = {
@@ -39,7 +43,31 @@ export class ModalsuscripcionComponent {
   };
 
   siguiente() {
-    if (this.step < 3) {
+    // Verificar la validez del formulario solo en el Paso 1 antes de avanzar
+    if (this.step === 1) {
+      // Añadir verificación para asegurarse de que step1Form está definido
+      if (this.step1Form && this.step1Form.valid) {
+        this.step++;
+      } else {
+        // Opcional: mostrar un mensaje al usuario si el formulario es inválido
+        console.log('Formulario del Paso 1 inválido. No se puede avanzar.');
+        // Marcar los campos como touched para mostrar los mensajes de error
+        if (this.step1Form) {
+           this.step1Form.form.markAllAsTouched();
+        }
+      }
+    } else if (this.step === 2) {
+        // Verificar la validez del formulario del Paso 2
+        if (this.step2Form && this.step2Form.valid) {
+             this.step++;
+        } else {
+            console.log('Formulario del Paso 2 inválido. No se puede avanzar.');
+             if (this.step2Form) {
+               this.step2Form.form.markAllAsTouched();
+            }
+        }
+    } else if (this.step < 3) {
+      // Lógica para validar otros pasos si es necesario antes de avanzar
       this.step++;
     }
   }
@@ -57,6 +85,19 @@ export class ModalsuscripcionComponent {
   }
 
   guardar() {
-    // lógica para guardar la suscripción
+    // Verificar la validez del formulario del Paso 3 antes de guardar
+    if (this.step3Form && this.step3Form.valid) {
+      console.log('Formulario del Paso 3 válido. Guardando...');
+      // lógica para guardar la suscripción
+      // Puedes acceder a los datos del formulario usando this.pago
+      console.log('Datos a guardar:', this.pago);
+      // Aquí iría la llamada a tu servicio para guardar los datos
+    } else {
+      console.log('Formulario del Paso 3 inválido. No se puede guardar.');
+      // Marcar los campos como touched para mostrar los mensajes de error
+       if (this.step3Form) {
+         this.step3Form.form.markAllAsTouched();
+      }
+    }
   }
 }

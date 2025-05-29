@@ -20,138 +20,190 @@
 
   <!-- Paso 1: Datos Cliente -->
   <div *ngIf="step === 1">
-    <div class="mb-3">
-        <label for="buscar" class="form-label">Buscar</label>
-        <div class="input-group">
-            <input type="text" class="form-control rounded-pill-start custom-input" id="buscar" placeholder="Buscar">
-            <button class="btn btn-outline-secondary rounded-pill-end" type="button"><i class="fas fa-times"></i></button>
-        </div>
-    </div>
-    <div class="mb-3">
-        <label for="nombres" class="form-label">Nombres</label>
-        <input type="text" class="form-control rounded-1 custom-input" id="nombres" placeholder="Nombres" [(ngModel)]="cliente.nombres" name="nombres">
-    </div>
-    <div class="mb-3">
-        <label for="apellidos" class="form-label">Apellidos</label>
-        <input type="text" class="form-control rounded-1 custom-input" id="apellidos" placeholder="Apellidos" [(ngModel)]="cliente.apellidos" name="apellidos">
-    </div>
-    <div class="mb-3">
-        <label for="telefono" class="form-label">Telefono</label>
-        <input type="text" class="form-control rounded-1 custom-input" id="telefono" placeholder="8 digitos" [(ngModel)]="cliente.telefono" name="telefono">
-    </div>
-    <div class="mb-3">
-        <label for="ciudad" class="form-label">Ciudad</label>
-        <input type="text" class="form-control rounded-1 custom-input" id="ciudad" placeholder="Santa Cruz de la Sierra" [(ngModel)]="cliente.ciudad" name="ciudad">
-    </div>
+    <form #step1Form="ngForm">
+      <div class="mb-3">
+          <label for="buscar" class="form-label">Buscar</label>
+          <div class="input-group">
+              <input type="text" class="form-control rounded-pill-start custom-input" id="buscar" placeholder="Buscar">
+              <button class="btn btn-outline-secondary rounded-pill-end" type="button"><i class="fas fa-times"></i></button>
+          </div>
+      </div>
+      <div class="mb-3">
+          <label for="nombres" class="form-label">Nombres</label>
+          <input type="text" class="form-control rounded-pill custom-input" id="nombres" placeholder="Nombres" [(ngModel)]="cliente.nombres" name="nombres" required pattern="[a-zA-Z ]+" #nombresInput="ngModel">
+          <div *ngIf="nombresInput.invalid && (nombresInput.dirty || nombresInput.touched)" class="text-danger mt-1">
+            <div *ngIf="nombresInput.errors?.['required']">Nombres es requerido.</div>
+            <div *ngIf="nombresInput.errors?.['pattern']">Solo se permiten letras y espacios.</div>
+          </div>
+      </div>
+      <div class="mb-3">
+          <label for="apellidos" class="form-label">Apellidos</label>
+          <input type="text" class="form-control rounded-pill custom-input" id="apellidos" placeholder="Apellidos" [(ngModel)]="cliente.apellidos" name="apellidos" required pattern="[a-zA-Z ]+" #apellidosInput="ngModel">
+           <div *ngIf="apellidosInput.invalid && (apellidosInput.dirty || apellidosInput.touched)" class="text-danger mt-1">
+            <div *ngIf="apellidosInput.errors?.['required']">Apellidos es requerido.</div>
+            <div *ngIf="apellidosInput.errors?.['pattern']">Solo se permiten letras y espacios.</div>
+          </div>
+      </div>
+      <div class="mb-3">
+          <label for="telefono" class="form-label">Telefono</label>
+          <input type="text" class="form-control rounded-pill custom-input" id="telefono" placeholder="8 digitos" [(ngModel)]="cliente.telefono" name="telefono" required pattern="[0-9]{8}" #telefonoInput="ngModel">
+           <div *ngIf="telefonoInput.invalid && (telefonoInput.dirty || telefonoInput.touched)" class="text-danger mt-1">
+            <div *ngIf="telefonoInput.errors?.['required']">Telefono es requerido.</div>
+            <div *ngIf="telefonoInput.errors?.['pattern']">Solo se permiten 8 dígitos numéricos.</div>
+          </div>
+      </div>
+      <div class="mb-3">
+          <label for="ciudad" class="form-label">Ciudad</label>
+          <input type="text" class="form-control rounded-pill custom-input" id="ciudad" placeholder="Santa Cruz de la Sierra" [(ngModel)]="cliente.ciudad" name="ciudad" required pattern="[a-zA-Z0-9 ]+" #ciudadInput="ngModel">
+           <div *ngIf="ciudadInput.invalid && (ciudadInput.dirty || ciudadInput.touched)" class="text-danger mt-1">
+            <div *ngIf="ciudadInput.errors?.['required']">Ciudad es requerido.</div>
+            <div *ngIf="ciudadInput.errors?.['pattern']">Solo se permiten letras, números y espacios.</div>
+          </div>
+      </div>
+    </form>
   </div>
 
   <!-- Paso 2: Producto -->
   <div *ngIf="step === 2">
-    <div class="mb-3">
-        <label for="detalles" class="form-label">Detalles de la suscripcion</label>
-        <textarea class="form-control custom-input" id="detalles" rows="3" placeholder="Informacion detallada de la suscripcion escogida por el prospecto..." [(ngModel)]="producto.detalles" name="detalles"></textarea>
-    </div>
-
-    <div class="mb-3">
-        <label for="servicioStreaming" class="form-label">Servicio de Streaming</label>
-        <select class="form-select custom-input" id="servicioStreaming" [(ngModel)]="producto.servicioStreaming" name="servicioStreaming">
-          <option value="" disabled selected>Seleccione un servicio</option>
-          <option value="Netflix">Netflix</option>
-          <option value="Prime Video">Prime Video</option>
-          <option value="Apple TV">Apple TV</option>
-          <option value="Magis TV">Magis TV</option>
-        </select>
-      </div>
-      
-
-    <div class="mb-3">
-        <label for="tipoSuscripcion" class="form-label">Tipo de Suscripción</label>
-        <select class="form-select custom-input" id="tipoSuscripcion" [(ngModel)]="producto.tipoSuscripcion" name="tipoSuscripcion">
-          <option value="" disabled selected>Seleccione un tipo</option>
-          <option value="Premium">Premium</option>
-          <option value="Regular">Regular</option>
-          <option value="Basico">Básico</option>
-        </select>
+    <form #step2Form="ngForm">
+      <div class="mb-3">
+          <label for="detalles" class="form-label">Detalles de la suscripcion</label>
+          <textarea class="form-control custom-input" id="detalles" rows="3" placeholder="Informacion detallada de la suscripcion escogida por el prospecto..." [(ngModel)]="producto.detalles" name="detalles" required pattern="[a-zA-Z0-9 ]*" #detallesInput="ngModel"></textarea>
+          <div *ngIf="detallesInput.invalid && (detallesInput.dirty || detallesInput.touched)" class="text-danger mt-1">
+            <div *ngIf="detallesInput.errors?.['required']">Los detalles son requeridos.</div>
+            <div *ngIf="detallesInput.errors?.['pattern']">Solo se permiten letras, números y espacios.</div>
+          </div>
       </div>
 
-    <div class="mb-3">
-      <label class="form-label">Tiempo de Suscripción</label>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="tiempoSuscripcion" id="tiempo1Mes" value="1 Mes" [(ngModel)]="producto.tiempoSuscripcion">
-        <label class="form-check-label" for="tiempo1Mes">
-          1 Mes
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="tiempoSuscripcion" id="tiempo3Meses" value="3 Meses (25% descuento)" [(ngModel)]="producto.tiempoSuscripcion">
-        <label class="form-check-label" for="tiempo3Meses">
-          3 Meses (25% descuento)
-        </label>
-      </div>
-       <div class="form-check">
-        <input class="form-check-input" type="radio" name="tiempoSuscripcion" id="tiempoX" value="1 Mes" [(ngModel)]="producto.tiempoSuscripcion">
-        <label class="form-check-label" for="tiempoX">
-          1 Mes
-        </label>
-      </div>
-    </div>
-
-    <div class="mb-3">
-        <label for="promocion" class="form-label">Promoción</label>
-        <select class="form-select custom-input" id="promocion" [(ngModel)]="producto.promocion" name="promocion">
-          <option value="" disabled selected>Seleccione una promoción</option>
-          <option value="15">Descuento 15%</option>
-          <option value="25">Descuento 25%</option>
-          <option value="5">Descuento 5%</option>
-          <option value="50">Descuento 50%</option>
-        </select>
+      <div class="mb-3">
+          <label for="servicioStreaming" class="form-label">Servicio de Streaming</label>
+          <select class="form-select custom-input" id="servicioStreaming" [(ngModel)]="producto.servicioStreaming" name="servicioStreaming" required #servicioStreamingInput="ngModel">
+            <option value="" disabled selected>Seleccione un servicio</option>
+            <option value="Netflix">Netflix</option>
+            <option value="Prime Video">Prime Video</option>
+            <option value="Apple TV">Apple TV</option>
+            <option value="Magis TV">Magis TV</option>
+          </select>
+           <div *ngIf="servicioStreamingInput.invalid && (servicioStreamingInput.dirty || servicioStreamingInput.touched)" class="text-danger mt-1">
+            <div *ngIf="servicioStreamingInput.errors?.['required']">Debe seleccionar un servicio de Streaming.</div>
+          </div>
       </div>
 
+      <div class="mb-3">
+          <label for="tipoSuscripcion" class="form-label">Tipo de Suscripción</label>
+          <select class="form-select custom-input" id="tipoSuscripcion" [(ngModel)]="producto.tipoSuscripcion" name="tipoSuscripcion" required #tipoSuscripcionInput="ngModel">
+            <option value="" disabled selected>Seleccione un tipo</option>
+            <option value="Premium">Premium</option>
+            <option value="Regular">Regular</option>
+            <option value="Basico">Básico</option>
+          </select>
+           <div *ngIf="tipoSuscripcionInput.invalid && (tipoSuscripcionInput.dirty || tipoSuscripcionInput.touched)" class="text-danger mt-1">
+            <div *ngIf="tipoSuscripcionInput.errors?.['required']">Debe seleccionar un tipo de Suscripción.</div>
+          </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Tiempo de Suscripción</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="tiempoSuscripcion" id="tiempo1Mes" value="1 Mes" [(ngModel)]="producto.tiempoSuscripcion" required #tiempoSuscripcionInput="ngModel">
+          <label class="form-check-label" for="tiempo1Mes">
+            1 Mes
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="tiempoSuscripcion" id="tiempo3Meses" value="3 Meses (25% descuento)" [(ngModel)]="producto.tiempoSuscripcion">
+          <label class="form-check-label" for="tiempo3Meses">
+            3 Meses (25% descuento)
+          </label>
+        </div>
+         <div class="form-check">
+          <input class="form-check-input" type="radio" name="tiempoSuscripcion" id="tiempoX" value="1 Mes" [(ngModel)]="producto.tiempoSuscripcion">
+          <label class="form-check-label" for="tiempoX">
+            1 Mes
+          </label>
+        </div>
+         <div *ngIf="tiempoSuscripcionInput.invalid && (tiempoSuscripcionInput.dirty || tiempoSuscripcionInput.touched)" class="text-danger mt-1">
+            <div *ngIf="tiempoSuscripcionInput.errors?.['required']">Debe seleccionar un tiempo de Suscripción.</div>
+          </div>
+      </div>
+
+      <div class="mb-3">
+          <label for="promocion" class="form-label">Promoción</label>
+          <select class="form-select custom-input" id="promocion" [(ngModel)]="producto.promocion" name="promocion" required #promocionInput="ngModel">
+            <option value="" disabled selected>Seleccione una promoción</option>
+            <option value="15">Descuento 15%</option>
+            <option value="25">Descuento 25%</option>
+            <option value="5">Descuento 5%</option>
+            <option value="50">Descuento 50%</option>
+          </select>
+           <div *ngIf="promocionInput.invalid && (promocionInput.dirty || promocionInput.touched)" class="text-danger mt-1">
+            <div *ngIf="promocionInput.errors?.['required']">Debe seleccionar una promoción.</div>
+          </div>
+        </div>
+    </form>
   </div>
 
   <!-- Paso 3: Método de Pago -->
   <div *ngIf="step === 3">
-    <div class="mb-3">
-      <label for="tipoPago" class="form-label">Tipo de Pago</label>
-      <select class="form-select custom-input" id="tipoPago" [(ngModel)]="pago.tipoPago" name="tipoPago">
-        <option value="" disabled>Seleccione una forma de pago</option>
-        <option value="transferencia">transferencia bancaria</option>
-        <option value="QR">QR</option>
-        <option value="efectivo">Efectivo</option>
-        <!-- Agrega más opciones aquí si es necesario -->
-      </select>
-    </div>
+    <form #step3Form="ngForm">
+      <div class="mb-3">
+        <label for="tipoPago" class="form-label">Tipo de Pago</label>
+        <select class="form-select custom-input" id="tipoPago" [(ngModel)]="pago.tipoPago" name="tipoPago" required #tipoPagoInput="ngModel">
+          <option value="" disabled>Seleccione una forma de pago</option>
+          <option value="transferencia">transferencia bancaria</option>
+          <option value="QR">QR</option>
+          <option value="efectivo">Efectivo</option>
+          <!-- Agrega más opciones aquí si es necesario -->
+        </select>
+         <div *ngIf="tipoPagoInput.invalid && (tipoPagoInput.dirty || tipoPagoInput.touched)" class="text-danger mt-1">
+            <div *ngIf="tipoPagoInput.errors?.['required']">Debe seleccionar una forma de pago.</div>
+          </div>
+      </div>
 
-    <div class="mb-3">
-        <label for="razonSocial" class="form-label">Razon Social</label>
-        <input type="text" class="form-control custom-input" id="razonSocial" placeholder="Saturnino Mamani" [(ngModel)]="pago.razonSocial" name="razonSocial">
-    </div>
+      <div class="mb-3">
+          <label for="razonSocial" class="form-label">Razon Social</label>
+          <input type="text" class="form-control custom-input" id="razonSocial" placeholder="Saturnino Mamani" [(ngModel)]="pago.razonSocial" name="razonSocial" required pattern="[a-zA-Z0-9 ]+" #razonSocialInput="ngModel">
+           <div *ngIf="razonSocialInput.invalid && (razonSocialInput.dirty || razonSocialInput.touched)" class="text-danger mt-1">
+            <div *ngIf="razonSocialInput.errors?.['required']">Razón Social es requerida.</div>
+            <div *ngIf="razonSocialInput.errors?.['pattern']">Solo se permiten letras, números y espacios.</div>
+          </div>
+      </div>
 
-    <div class="mb-3">
-        <label for="nit" class="form-label">NIT</label>
-        <input type="text" class="form-control custom-input" id="nit" placeholder="123123123" [(ngModel)]="pago.nit" name="nit">
-    </div>
+      <div class="mb-3">
+          <label for="nit" class="form-label">NIT</label>
+          <input type="text" class="form-control custom-input" id="nit" placeholder="123123123" [(ngModel)]="pago.nit" name="nit" required pattern="[0-9]+" #nitInput="ngModel">
+           <div *ngIf="nitInput.invalid && (nitInput.dirty || nitInput.touched)" class="text-danger mt-1">
+            <div *ngIf="nitInput.errors?.['required']">NIT es requerido.</div>
+            <div *ngIf="nitInput.errors?.['pattern']">Solo se permiten números.</div>
+          </div>
+      </div>
 
-    <div class="d-flex justify-content-between mt-4">
-        <span class="fw-bold">TOTAL</span>
-        <span class="fw-bold">{{ pago.total | currency:'USD':'symbol':'1.2-2' }}</span>
-    </div>
-
+      <div class="d-flex justify-content-between mt-4">
+          <span class="fw-bold">TOTAL</span>
+          <span class="fw-bold">{{ pago.total | currency:'USD':'symbol':'1.2-2' }}</span>
+      </div>
+    </form>
   </div>
 </div>
 
 <div class="modal-footer">
   <!-- Botón Cancelar (solo en Paso 1) -->
-  <button type="button" class="btn btn-primary rounded-pill px-4 me-2" *ngIf="step === 1" data-bs-dismiss="modal" (click)="cancelar()">Cancelar</button>
+  <button type="button" class="btn btn-primary rounded-1 px-4 me-2" *ngIf="step === 1" data-bs-dismiss="modal" (click)="cancelar()">Cancelar</button>
 
   <!-- Botón Atrás (en Paso 2 y Paso 3) -->
-  <button type="button" class="btn btn-primary rounded-pill px-4 me-2" *ngIf="step > 1" (click)="atras()">Atrás &leftarrow;</button>
+  <button type="button" class="btn btn-primary rounded-1 px-4 me-2" *ngIf="step > 1" (click)="atras()">Atrás &leftarrow;</button>
 
   <!-- Botón Siguiente (en Paso 1 y Paso 2) -->
-  <button type="button" class="btn btn-primary rounded-pill px-4" *ngIf="step < 3" (click)="siguiente()">Siguiente &rarr;</button>
+  <button type="button" class="btn btn-primary rounded-1 px-4" *ngIf="step < 3" (click)="siguiente()" [disabled]="(step === 1 && (!step1Form || step1Form.invalid)) || (step === 2 && (!step2Form || step2Form.invalid))">Siguiente &rarr;</button>
 
-  <!-- Botón Confirmar (solo en Paso 3) -->
-  <button type="button" class="btn btn-primary rounded-pill px-4" *ngIf="step === 3" (click)="guardar()">Confirmar</button>
+ <!-- Botón Confirmar (solo en Paso 3) -->
+<button type="button" class="btn btn-primary rounded-1 px-4 d-flex align-items-center" *ngIf="step === 3" (click)="guardar()" [disabled]="!step3Form || step3Form.invalid">
+  Confirmar
+  <svg class="ms-2" width="20" height="26" viewBox="0 0 29 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25.375 4.75H19.3333C19.3333 2.13008 17.1659 0 14.5 0C11.8341 0 9.66667 2.13008 9.66667 4.75H3.625C1.6237 4.75 0 6.3457 0 8.3125V34.4375C0 36.4043 1.6237 38 3.625 38H25.375C27.3763 38 29 36.4043 29 34.4375V8.3125C29 6.3457 27.3763 4.75 25.375 4.75ZM14.5 2.96875C15.5044 2.96875 16.3125 3.76289 16.3125 4.75C16.3125 5.73711 15.5044 6.53125 14.5 6.53125C13.4956 6.53125 12.6875 5.73711 12.6875 4.75C12.6875 3.76289 13.4956 2.96875 14.5 2.96875ZM23.6531 20.1727L12.8536 30.6969C12.4987 31.0457 11.9247 31.0383 11.5698 30.6895L5.33177 24.507C4.97682 24.1582 4.98438 23.5941 5.33932 23.2453L7.48411 21.1523C7.83906 20.8035 8.41302 20.8109 8.76797 21.1598L12.2419 24.6035L20.2471 16.7957C20.6021 16.4469 21.176 16.4543 21.531 16.8031L23.6607 18.9109C24.0156 19.2672 24.0081 19.8238 23.6531 20.1727Z" fill="white"/>
+  </svg>
+</button>
+
 </div>
 
 <style>
@@ -247,5 +299,11 @@
 .modal-footer .btn-primary {
     background-color: #1F3A93;
     border-color: #1F3A93;
+}
+
+/* Estilo para el botón Siguiente deshabilitado */
+.modal-footer .btn-primary[disabled] {
+    opacity: 0.65;
+    cursor: not-allowed;
 }
 </style>

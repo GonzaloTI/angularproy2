@@ -1,0 +1,251 @@
+<div class="modal-body">
+  <!-- Barra de progreso de pasos -->
+  <div class="steps-container mb-4">
+    <div class="step-line"></div>
+    <div class="steps d-flex justify-content-between">
+        <div class="step-item text-center" [class.active]="step === 1 || step > 1">
+            <div class="step-circle" [class.active]="step === 1 || step > 1"></div>
+            <div class="step-label">Datos Cliente</div>
+        </div>
+        <div class="step-item text-center" [class.active]="step === 2 || step > 2">
+            <div class="step-circle" [class.active]="step === 2 || step > 2"></div>
+            <div class="step-label">Producto</div>
+        </div>
+        <div class="step-item text-center" [class.active]="step === 3">
+            <div class="step-circle" [class.active]="step === 3"></div>
+            <div class="step-label">Método de Pago</div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Paso 1: Datos Cliente -->
+  <div *ngIf="step === 1">
+    <div class="mb-3">
+        <label for="buscar" class="form-label">Buscar</label>
+        <div class="input-group">
+            <input type="text" class="form-control rounded-pill-start custom-input" id="buscar" placeholder="Buscar">
+            <button class="btn btn-outline-secondary rounded-pill-end" type="button"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="nombres" class="form-label">Nombres</label>
+        <input type="text" class="form-control rounded-1 custom-input" id="nombres" placeholder="Nombres" [(ngModel)]="cliente.nombres" name="nombres">
+    </div>
+    <div class="mb-3">
+        <label for="apellidos" class="form-label">Apellidos</label>
+        <input type="text" class="form-control rounded-1 custom-input" id="apellidos" placeholder="Apellidos" [(ngModel)]="cliente.apellidos" name="apellidos">
+    </div>
+    <div class="mb-3">
+        <label for="telefono" class="form-label">Telefono</label>
+        <input type="text" class="form-control rounded-1 custom-input" id="telefono" placeholder="8 digitos" [(ngModel)]="cliente.telefono" name="telefono">
+    </div>
+    <div class="mb-3">
+        <label for="ciudad" class="form-label">Ciudad</label>
+        <input type="text" class="form-control rounded-1 custom-input" id="ciudad" placeholder="Santa Cruz de la Sierra" [(ngModel)]="cliente.ciudad" name="ciudad">
+    </div>
+  </div>
+
+  <!-- Paso 2: Producto -->
+  <div *ngIf="step === 2">
+    <div class="mb-3">
+        <label for="detalles" class="form-label">Detalles de la suscripcion</label>
+        <textarea class="form-control custom-input" id="detalles" rows="3" placeholder="Informacion detallada de la suscripcion escogida por el prospecto..." [(ngModel)]="producto.detalles" name="detalles"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="servicioStreaming" class="form-label">Servicio de Streaming</label>
+        <select class="form-select custom-input" id="servicioStreaming" [(ngModel)]="producto.servicioStreaming" name="servicioStreaming">
+          <option value="" disabled selected>Seleccione un servicio</option>
+          <option value="Netflix">Netflix</option>
+          <option value="Prime Video">Prime Video</option>
+          <option value="Apple TV">Apple TV</option>
+          <option value="Magis TV">Magis TV</option>
+        </select>
+      </div>
+      
+
+    <div class="mb-3">
+        <label for="tipoSuscripcion" class="form-label">Tipo de Suscripción</label>
+        <select class="form-select custom-input" id="tipoSuscripcion" [(ngModel)]="producto.tipoSuscripcion" name="tipoSuscripcion">
+          <option value="" disabled selected>Seleccione un tipo</option>
+          <option value="Premium">Premium</option>
+          <option value="Regular">Regular</option>
+          <option value="Basico">Básico</option>
+        </select>
+      </div>
+
+    <div class="mb-3">
+      <label class="form-label">Tiempo de Suscripción</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="tiempoSuscripcion" id="tiempo1Mes" value="1 Mes" [(ngModel)]="producto.tiempoSuscripcion">
+        <label class="form-check-label" for="tiempo1Mes">
+          1 Mes
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="tiempoSuscripcion" id="tiempo3Meses" value="3 Meses (25% descuento)" [(ngModel)]="producto.tiempoSuscripcion">
+        <label class="form-check-label" for="tiempo3Meses">
+          3 Meses (25% descuento)
+        </label>
+      </div>
+       <div class="form-check">
+        <input class="form-check-input" type="radio" name="tiempoSuscripcion" id="tiempoX" value="1 Mes" [(ngModel)]="producto.tiempoSuscripcion">
+        <label class="form-check-label" for="tiempoX">
+          1 Mes
+        </label>
+      </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="promocion" class="form-label">Promoción</label>
+        <select class="form-select custom-input" id="promocion" [(ngModel)]="producto.promocion" name="promocion">
+          <option value="" disabled selected>Seleccione una promoción</option>
+          <option value="15">Descuento 15%</option>
+          <option value="25">Descuento 25%</option>
+          <option value="5">Descuento 5%</option>
+          <option value="50">Descuento 50%</option>
+        </select>
+      </div>
+
+  </div>
+
+  <!-- Paso 3: Método de Pago -->
+  <div *ngIf="step === 3">
+    <div class="mb-3">
+      <label for="tipoPago" class="form-label">Tipo de Pago</label>
+      <select class="form-select custom-input" id="tipoPago" [(ngModel)]="pago.tipoPago" name="tipoPago">
+        <option value="" disabled>Seleccione una forma de pago</option>
+        <option value="transferencia">transferencia bancaria</option>
+        <option value="QR">QR</option>
+        <option value="efectivo">Efectivo</option>
+        <!-- Agrega más opciones aquí si es necesario -->
+      </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="razonSocial" class="form-label">Razon Social</label>
+        <input type="text" class="form-control custom-input" id="razonSocial" placeholder="Saturnino Mamani" [(ngModel)]="pago.razonSocial" name="razonSocial">
+    </div>
+
+    <div class="mb-3">
+        <label for="nit" class="form-label">NIT</label>
+        <input type="text" class="form-control custom-input" id="nit" placeholder="123123123" [(ngModel)]="pago.nit" name="nit">
+    </div>
+
+    <div class="d-flex justify-content-between mt-4">
+        <span class="fw-bold">TOTAL</span>
+        <span class="fw-bold">{{ pago.total | currency:'USD':'symbol':'1.2-2' }}</span>
+    </div>
+
+  </div>
+</div>
+
+<div class="modal-footer">
+  <!-- Botón Cancelar (solo en Paso 1) -->
+  <button type="button" class="btn btn-primary rounded-pill px-4 me-2" *ngIf="step === 1" data-bs-dismiss="modal" (click)="cancelar()">Cancelar</button>
+
+  <!-- Botón Atrás (en Paso 2 y Paso 3) -->
+  <button type="button" class="btn btn-primary rounded-pill px-4 me-2" *ngIf="step > 1" (click)="atras()">Atrás &leftarrow;</button>
+
+  <!-- Botón Siguiente (en Paso 1 y Paso 2) -->
+  <button type="button" class="btn btn-primary rounded-pill px-4" *ngIf="step < 3" (click)="siguiente()">Siguiente &rarr;</button>
+
+  <!-- Botón Confirmar (solo en Paso 3) -->
+  <button type="button" class="btn btn-primary rounded-pill px-4" *ngIf="step === 3" (click)="guardar()">Confirmar</button>
+</div>
+
+<style>
+.steps-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto 20px auto;
+}
+
+.step-line {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    right: 10%;
+    height: 3px;
+    background-color: #ccc;
+    z-index: 1;
+}
+
+.steps {
+    position: relative;
+    z-index: 2;
+}
+
+.step-item {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.step-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 auto 5px auto;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #ccc;
+}
+
+.step-circle.active {
+    background-color: #1F3A93;
+    box-shadow: 0 0 0 2px #1F3A93;
+}
+
+.step-label {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.step-item.active .step-label {
+    color: #1F3A93;
+    font-weight: bold;
+}
+
+.custom-input {
+    border-color: #ccc;
+    box-shadow: none !important;
+}
+
+.rounded-pill-start {
+    border-top-left-radius: 50rem !important;
+    border-bottom-left-radius: 50rem !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.rounded-pill-end {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 50rem !important;
+    border-bottom-right-radius: 50rem !important;
+}
+
+.rounded-pill {
+    border-radius: 50rem !important;
+}
+
+/* Estilo para el botón Buscar/Times */
+.input-group .btn-outline-secondary {
+    border-color: #ccc;
+}
+
+.input-group .btn-outline-secondary i {
+    color: #888;
+}
+
+/* Estilo para los botones del footer */
+.modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.modal-footer .btn-primary {
+    background-color: #1F3A93;
+    border-color: #1F3A93;
+}
+</style>

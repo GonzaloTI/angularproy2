@@ -1,0 +1,294 @@
+<div class="mb-4">
+    <h4 class="mb-0 fw-bold" style="color: #6b6b6b; font-size: 1.5rem;">
+      Suscripciones
+    </h4>
+  </div>
+  <div class="d-flex flex-wrap gap-3 justify-content-start">
+    <!-- Card 1 -->
+   
+    <!-- Card 3 -->
+    <div class="card shadow-sm border-0" style="min-width: 220px; max-width: 250px; flex: 1 1 220px;">
+      <div style="height: 8px; background: #2046b3; border-radius: 4px 4px 0 0;"></div>
+      <div class="card-body text-center">
+        <div class="d-flex justify-content-center align-items-center mb-2">
+          <span class="fw-bold" style="font-size: 2.5rem; color: #2046b3;">80</span>
+          <i class="fas fa-user-check ms-2" style="font-size: 2.2rem; color: #5B81FD;"></i>
+        </div>
+        <div class="fw-normal" style="color: #444;">planes creados hoy</div>
+      </div>
+    </div>
+    <!-- Card 4 -->
+    <div class="card shadow-sm border-0" style="min-width: 220px; max-width: 250px; flex: 1 1 220px;">
+      <div style="height: 8px; background: #2046b3; border-radius: 4px 4px 0 0;"></div>
+      <div class="card-body text-center">
+        <div class="d-flex justify-content-center align-items-center mb-2">
+          <span class="fw-bold" style="font-size: 2.5rem; color: #003CFF;">50%</span>
+        </div>
+        <div class="fw-normal" style="color: #444;">Tasa de suscripcion</div>
+      </div>
+    </div>
+  </div>
+  
+  <hr class="my-4"> <!-- Línea divisoria con margen vertical -->
+  
+  
+  <!-- Barra de búsqueda y filtro -->
+  <div class="container mb-4">
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn btn-primary fw-bold" style="background-color: #1F3A93; border-color: #1F3A93;" data-bs-toggle="modal" data-bs-target="#suscripcionModal">
+                Nueva Suscripción
+                <svg width="24" height="24" viewBox="0 0 19 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="me-2">
+                    <path d="M16.4062 3.625H12.5C12.5 1.90137 11.0986 0.5 9.375 0.5C7.65137 0.5 6.25 1.90137 6.25 3.625H2.34375C1.0498 3.625 0 4.6748 0 5.96875V23.1562C0 24.4502 1.0498 25.5 2.34375 25.5H16.4062C17.7002 25.5 18.75 24.4502 18.75 23.1562V5.96875C18.75 4.6748 17.7002 3.625 16.4062 3.625ZM4.6875 21.2031C4.03809 21.2031 3.51562 20.6807 3.51562 20.0312C3.51562 19.3818 4.03809 18.8594 4.6875 18.8594C5.33691 18.8594 5.85938 19.3818 5.85938 20.0312C5.85938 20.6807 5.33691 21.2031 4.6875 21.2031ZM4.6875 16.5156C4.03809 16.5156 3.51562 15.9932 3.51562 15.3438C3.51562 14.6943 4.03809 14.1719 4.6875 14.1719C5.33691 14.1719 5.85938 14.6943 5.85938 15.3438C5.85938 15.9932 5.33691 16.5156 4.6875 16.5156ZM4.6875 11.8281C4.03809 11.8281 3.51562 11.3057 3.51562 10.6562C3.51562 10.0068 4.03809 9.48438 4.6875 9.48438C5.33691 9.48438 5.85938 10.0068 5.85938 10.6562C5.85938 11.3057 5.33691 11.8281 4.6875 11.8281ZM9.375 2.45312C10.0244 2.45312 10.5469 2.97559 10.5469 3.625C10.5469 4.27441 10.0244 4.79688 9.375 4.79688C8.72559 4.79688 8.20312 4.27441 8.20312 3.625C8.20312 2.97559 8.72559 2.45312 9.375 2.45312ZM15.625 20.4219C15.625 20.6367 15.4492 20.8125 15.2344 20.8125H8.20312C7.98828 20.8125 7.8125 20.6367 7.8125 20.4219V19.6406C7.8125 19.4258 7.98828 19.25 8.20312 19.25H15.2344C15.4492 19.25 15.625 19.4258 15.625 19.6406V20.4219ZM15.625 15.7344C15.625 15.9492 15.4492 16.125 15.2344 16.125H8.20312C7.98828 16.125 7.8125 15.9492 7.8125 15.7344V14.9531C7.8125 14.7383 7.98828 14.5625 8.20312 14.5625H15.2344C15.4492 14.5625 15.625 14.7383 15.625 14.9531V15.7344ZM15.625 11.0469C15.625 11.2617 15.4492 11.4375 15.2344 11.4375H8.20312C7.98828 11.4375 7.8125 11.2617 7.8125 11.0469V10.2656C7.8125 10.0508 7.98828 9.875 8.20312 9.875H15.2344C15.4492 9.875 15.625 10.0508 15.625 10.2656V11.0469Z" fill="white"/>
+                    </svg>
+                    
+            </button>
+        </div>
+        <div class="col-md-3 ms-auto">
+            <div class="position-relative" style="width: 250px;">
+                <input
+                  type="text"
+                  class="form-control search-input-bootstrap"
+                  placeholder="Buscar"
+                  readonly
+                >
+                <span class="search-clear-bootstrap position-absolute top-50 translate-middle-y end-0 me-3">
+                  &times;
+                </span>
+            </div>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-light border fw-bold" >
+            Filtrar
+            <svg width="25" height="29" viewBox="0 0 25 29" fill="none" xmlns="http://www.w3.org/2000/svg" class="ms-2">
+              <path d="M22.9167 4H2.08337L10.4167 15.0367V22.6667L14.5834 25V15.0367L22.9167 4Z"
+                    stroke="#666666" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+    </div>
+  </div>
+  
+  <!-- Tabla -->
+  <div class="container">
+    <div class="card">
+        <div class="card-body">
+            <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light">
+                    <tr>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Final</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>25/03/2024</td>
+                        <td>25/04/2024</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">Juan Pérez</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                          <span class="badge rounded-pill" style="background-color: #EE98FF; color: #333333;">Suscrito</span>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" routerLink="/suscripciondetalle" style="background-color: #1F3A93; border-color: #1F3A93;">Ver Detalles</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>26/03/2024</td>
+                        <td>26/04/2024</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">María García</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                          <span class="badge rounded-pill" style="background-color: #EE98FF; color: #333333;">Suscrito</span>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" routerLink="/suscripciondetalle" style="background-color: #1F3A93; border-color: #1F3A93;">Ver Detalles</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>27/03/2024</td>
+                        <td>27/04/2024</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">Carlos López</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                          <span class="badge rounded-pill" style="background-color: #EE98FF; color: #333333;">Suscrito</span>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" routerLink="/suscripciondetalle" style="background-color: #1F3A93; border-color: #1F3A93;">Ver Detalles</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>28/03/2024</td>
+                        <td>28/04/2024</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">Ana Martínez</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                          <span class="badge rounded-pill" style="background-color: #EE98FF; color: #333333;">Suscrito</span>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" routerLink="/suscripciondetalle" style="background-color: #1F3A93; border-color: #1F3A93;">Ver Detalles</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>29/03/2024</td>
+                        <td>29/04/2024</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">Roberto Sánchez</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                          <span class="badge rounded-pill" style="background-color: #EE98FF; color: #333333;">Suscrito</span>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" routerLink="/suscripciondetalle" style="background-color: #1F3A93; border-color: #1F3A93;">Ver Detalles</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <!-- Paginador centrado -->
+            <div class="d-flex justify-content-center mt-4">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination mb-0">
+                        <li class="page-item">
+                            <a class="page-link" href="/prospectos" aria-label="Previous">
+                                <i class="fas fa-chevron-left"></i> Previo
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="/prospectos">2</a></li>
+                        <li class="page-item"><a class="page-link"href="/prospectos">3</a></li>
+                        <li class="page-item disabled"><a class="page-link" href="/prospectos">...</a></li>
+                        <li class="page-item"><a class="page-link" href="/prospectos">67</a></li>
+                        <li class="page-item"><a class="page-link" href="/prospectos">68</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="/prospectos" aria-label="Next">
+                                Siguiente <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <!-- Modal Nueva Suscripción -->
+  <div class="modal fade" id="suscripcionModal" tabindex="-1" aria-labelledby="suscripcionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="suscripcionModalLabel">NUEVA SUSCRIPCION</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Aquí se cargará el contenido del componente modal -->
+          <app-modalsuscripcion></app-modalsuscripcion>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+  
+  <!-- Estilos CSS necesarios -->
+  <style>
+  .progress-circle {
+    position: relative;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .progress-circle-value {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#1F3A93 calc(var(--value) * 1%), transparent 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .progress-circle-value::before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background: white;
+  }
+  
+  .search-input-bootstrap {
+    border: 1.5px solid #2046b3 !important;
+    border-radius: 999px !important;
+    padding-right: 2.5rem !important;
+    color: #2046b3;
+    box-shadow: none !important;
+  }
+  
+  .search-input-bootstrap::placeholder {
+    color: #7a8bb3;
+    opacity: 1;
+  }
+  
+  .search-clear-bootstrap {
+    color: #2046b3;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .steps div {
+    width: 33%;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 3px solid #ccc;
+    color: #888;
+    font-weight: bold;
+  }
+  .steps div.active {
+    border-bottom: 3px solid #1F3A93;
+    color: #1F3A93;
+    background: #eaefff;
+    border-radius: 10px 10px 0 0;
+  }
+  </style>
+  
+  

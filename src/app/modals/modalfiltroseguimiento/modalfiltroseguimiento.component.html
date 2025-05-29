@@ -1,0 +1,56 @@
+<div class="modal-header border-0 pb-0">
+  <h4 class="mb-0 fw-bold">Filtros para actividades del prospecto</h4>
+</div>
+
+<div class="modal-body">
+  <form>
+    <div class="row mb-3">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <i class="far fa-calendar-alt me-2 text-primary"></i>
+        <label class="form-label fw-semibold">Fecha desde</label>
+        
+        <input type="date" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <i class="far fa-calendar-alt me-2 text-primary"></i>
+        <label class="form-label fw-semibold">Fecha hasta</label>
+     
+        <input type="date" class="form-control">
+      </div>
+    </div>
+    <div class="mb-3" style="width: 200px;">
+      <label class="form-label fw-semibold">Estado</label>
+      <select class="form-select">
+        <option value="">Todos</option>
+        <option value="exitoso">Exitoso</option>
+        <option value="pendiente">Pendiente</option>
+        <option value="fallida">Fallida</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label fw-semibold">Actividad</label>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="llamada" value="llamada">
+        <label class="form-check-label" for="llamada">Llamada</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="correo" value="correo">
+        <label class="form-check-label" for="correo">Correo</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="facebook" value="facebook">
+        <label class="form-check-label" for="facebook">Facebook</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="instagram" value="instagram">
+        <label class="form-check-label" for="instagram">Instagram</label>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end gap-2 mt-4">
+      <button type="button" class="btn btn-light border fw-bold px-4" data-bs-dismiss="modal">Cerrar</button>
+      <button type="submit" class="btn fw-bold px-4" style="background-color: #253b8a; color: #fff;">
+        Aplicar Filtros<i class="fas fa-filter ms-1"></i>
+      </button>
+    </div>
+  </form>
+</div>

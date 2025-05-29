@@ -1,11 +1,339 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>IHC Prospectos</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
+<div class="mb-4">
+  <h4 class="mb-0 fw-bold" style="color: #6b6b6b; font-size: 1.5rem;">
+    Lista de Prospectos
+  </h4>
+</div>
+<div class="d-flex flex-wrap gap-3 justify-content-start">
+  <!-- Card 1 -->
+  <div class="card shadow-sm border-0" style="min-width: 220px; max-width: 250px; flex: 1 1 220px;">
+    <div style="height: 8px; background: #2046b3; border-radius: 4px 4px 0 0;"></div>
+    <div class="card-body text-center">
+      <div class="d-flex justify-content-center align-items-center mb-2">
+        <span class="fw-bold" style="font-size: 2.5rem; color: #2046b3;">540</span>
+        <i class="fas fa-users ms-2" style="font-size: 2.2rem; color: #5B81FD;"></i>
+      </div>
+      <div class="fw-normal" style="color: #444;">Total de Prospectos</div>
+    </div>
+  </div>
+  <!-- Card 2 -->
+  <div class="card shadow-sm border-0" style="min-width: 220px; max-width: 250px; flex: 1 1 220px;">
+    <div style="height: 8px; background: #2046b3; border-radius: 4px 4px 0 0;"></div>
+    <div class="card-body text-center">
+      <div class="d-flex justify-content-center align-items-center mb-2">
+        <span class="fw-bold" style="font-size: 2.5rem; color: #2046b3;">90</span>
+        <i class="fas fa-phone-slash ms-2" style="font-size: 2.2rem; color: #5B81FD;"></i>
+      </div>
+      <div class="fw-normal" style="color: #444;">No contactados</div>
+    </div>
+  </div>
+  <!-- Card 3 -->
+  <div class="card shadow-sm border-0" style="min-width: 220px; max-width: 250px; flex: 1 1 220px;">
+    <div style="height: 8px; background: #2046b3; border-radius: 4px 4px 0 0;"></div>
+    <div class="card-body text-center">
+      <div class="d-flex justify-content-center align-items-center mb-2">
+        <span class="fw-bold" style="font-size: 2.5rem; color: #888;">80</span>
+        <i class="fas fa-user-check ms-2" style="font-size: 2.2rem; color: #5B81FD;"></i>
+      </div>
+      <div class="fw-normal" style="color: #444;">Objetivo del día</div>
+    </div>
+  </div>
+  <!-- Card 4 -->
+  <div class="card shadow-sm border-0" style="min-width: 220px; max-width: 250px; flex: 1 1 220px;">
+    <div style="height: 8px; background: #2046b3; border-radius: 4px 4px 0 0;"></div>
+    <div class="card-body text-center">
+      <div class="d-flex justify-content-center align-items-center mb-2">
+        <span class="fw-bold" style="font-size: 2.5rem; color: #003CFF;">25%</span>
+      </div>
+      <div class="fw-normal" style="color: #444;">Tasa de aceptacion</div>
+    </div>
+  </div>
+</div>
 
-<p>prospectolist w orks!</p>
+<hr class="my-4"> <!-- Línea divisoria con margen vertical -->
+
+
+<!-- Barra de búsqueda y filtro -->
+<div class="container mb-4">
+  <div class="row">
+      <div class="col-md-3 ms-auto">
+          <div class="position-relative" style="width: 250px;">
+              <input
+                type="text"
+                class="form-control search-input-bootstrap"
+                placeholder="Buscar"
+                readonly
+              >
+              <span class="search-clear-bootstrap position-absolute top-50 translate-middle-y end-0 me-3">
+                &times;
+              </span>
+          </div>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-light border fw-bold" >
+          Filtrar
+          <svg width="25" height="29" viewBox="0 0 25 29" fill="none" xmlns="http://www.w3.org/2000/svg" class="ms-2">
+            <path d="M22.9167 4H2.08337L10.4167 15.0367V22.6667L14.5834 25V15.0367L22.9167 4Z"
+                  stroke="#666666" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+  </div>
+</div>
+
+<!-- Tabla -->
+<div class="container">
+  <div class="card">
+      <div class="card-body">
+          <table class="table align-middle mb-0 bg-white">
+              <thead class="bg-light">
+                  <tr>
+                      <th>Fecha</th>
+                      <th>Nombre</th>
+                      <th>Contactos</th>
+                      <th>Nivel de Interés</th>
+                      <th>Estado</th>
+                      <th>Opciones</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>25/03/2024</td>
+                      <td>
+                          <div class="d-flex align-items-center">
+                              <div class="ms-3">
+                                  <p class="fw-bold mb-1">Juan Pérez</p>
+                              </div>
+                          </div>
+                      </td>
+                      <td>
+                        <span class="badge bg-light text-dark me-2">5</span>
+                        <i class="fas fa-phone  me-2" style="color:#4D75FA;"></i>
+                        <svg width="26" height="22" viewBox="0 0 44 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M22.3995 6.99988C26.7436 6.99988 30.7207 8.30173 33.6573 10.2928C36.5238 12.2365 38.7335 15.0966 38.7335 18.3134C38.7333 21.6115 36.4268 24.2137 33.5323 25.8798C30.5838 27.5768 26.6434 28.5634 22.3995 28.5634C20.4411 28.5633 17.997 28.0546 16.1661 27.5985C15.2243 27.3639 14.394 27.1305 13.7989 26.955C13.7085 26.9283 13.6234 26.9016 13.544 26.8778L8.83795 28.8456C8.09515 29.156 7.23819 28.9901 6.66412 28.4257C6.09027 27.8612 5.91032 27.0075 6.20807 26.2596L7.62897 22.6932C7.49328 22.4608 7.34123 22.1951 7.19049 21.9071C6.9422 21.4328 6.67502 20.8707 6.46588 20.2928C6.26749 19.7446 6.06654 19.0365 6.06647 18.3134C6.06647 15.0966 8.27603 12.2365 11.1426 10.2928C14.0791 8.30182 18.0556 6.99994 22.3995 6.99988Z" stroke="#5B81FD" stroke-width="4" stroke-linejoin="round"/>
+                        </svg>
+                      </td>
+                      <td>
+                          <div class="d-flex align-items-center gap-2">
+                              <span class="fw-bold">75%</span>
+                              <div class="progress-circle" style="width: 25px; height: 25px;">
+                                  <div class="progress-circle-value" style="--value: 75;"></div>
+                              </div>
+                          </div>
+                      </td>
+                      <td>
+                        <span class="badge rounded-pill" style="background-color: #FFDDBA; color: rgb(46, 46, 46);">Prospecto</span>
+                      </td>
+                      
+                      <td>
+                          <a class="btn btn-primary btn-sm" routerLink="/prospectodetalle" style="background-color: #1F3A93; border-color: #1F3A93;">Nueva Actividad</a>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>26/03/2024</td>
+                      <td>
+                          <div class="d-flex align-items-center">
+                              <div class="ms-3">
+                                  <p class="fw-bold mb-1">María García</p>
+                              </div>
+                          </div>
+                      </td>
+                      <td>
+                          <span class="badge bg-light text-dark me-2">3</span>
+                          <i class="fas fa-phone  me-2" style="color:#4D75FA;"></i>
+                          <svg width="26" height="22" viewBox="0 0 44 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.3995 6.99988C26.7436 6.99988 30.7207 8.30173 33.6573 10.2928C36.5238 12.2365 38.7335 15.0966 38.7335 18.3134C38.7333 21.6115 36.4268 24.2137 33.5323 25.8798C30.5838 27.5768 26.6434 28.5634 22.3995 28.5634C20.4411 28.5633 17.997 28.0546 16.1661 27.5985C15.2243 27.3639 14.394 27.1305 13.7989 26.955C13.7085 26.9283 13.6234 26.9016 13.544 26.8778L8.83795 28.8456C8.09515 29.156 7.23819 28.9901 6.66412 28.4257C6.09027 27.8612 5.91032 27.0075 6.20807 26.2596L7.62897 22.6932C7.49328 22.4608 7.34123 22.1951 7.19049 21.9071C6.9422 21.4328 6.67502 20.8707 6.46588 20.2928C6.26749 19.7446 6.06654 19.0365 6.06647 18.3134C6.06647 15.0966 8.27603 12.2365 11.1426 10.2928C14.0791 8.30182 18.0556 6.99994 22.3995 6.99988Z" stroke="#5B81FD" stroke-width="4" stroke-linejoin="round"/>
+                          </svg>
+                      </td>
+                      <td>
+                          <div class="d-flex align-items-center gap-2">
+                              <span class="fw-bold">45%</span>
+                              <div class="progress-circle" style="width: 25px; height: 25px;">
+                                  <div class="progress-circle-value" style="--value: 45;"></div>
+                              </div>
+                          </div>
+                      </td>
+                      <td>
+                        <span class="badge rounded-pill" style="background-color: #FFDDBA; color: rgb(46, 46, 46);">Prospecto</span>
+                      </td>
+                      <td>
+                          <a class="btn btn-primary btn-sm" routerLink="/prospectodetalle" style="background-color: #1F3A93; border-color: #1F3A93;">Nueva Actividad</a>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>27/03/2024</td>
+                      <td>
+                          <div class="d-flex align-items-center">
+                              <div class="ms-3">
+                                  <p class="fw-bold mb-1">Carlos López</p>
+                              </div>
+                          </div>
+                      </td>
+                      <td>
+                          <span class="badge bg-light text-dark me-2">7</span>
+                          <i class="fas fa-phone  me-2" style="color:#4D75FA;"></i>
+                          <svg width="26" height="22" viewBox="0 0 44 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.3995 6.99988C26.7436 6.99988 30.7207 8.30173 33.6573 10.2928C36.5238 12.2365 38.7335 15.0966 38.7335 18.3134C38.7333 21.6115 36.4268 24.2137 33.5323 25.8798C30.5838 27.5768 26.6434 28.5634 22.3995 28.5634C20.4411 28.5633 17.997 28.0546 16.1661 27.5985C15.2243 27.3639 14.394 27.1305 13.7989 26.955C13.7085 26.9283 13.6234 26.9016 13.544 26.8778L8.83795 28.8456C8.09515 29.156 7.23819 28.9901 6.66412 28.4257C6.09027 27.8612 5.91032 27.0075 6.20807 26.2596L7.62897 22.6932C7.49328 22.4608 7.34123 22.1951 7.19049 21.9071C6.9422 21.4328 6.67502 20.8707 6.46588 20.2928C6.26749 19.7446 6.06654 19.0365 6.06647 18.3134C6.06647 15.0966 8.27603 12.2365 11.1426 10.2928C14.0791 8.30182 18.0556 6.99994 22.3995 6.99988Z" stroke="#5B81FD" stroke-width="4" stroke-linejoin="round"/>
+                          </svg>
+                      </td>
+                      <td>
+                          <div class="d-flex align-items-center gap-2">
+                              <span class="fw-bold">90%</span>
+                              <div class="progress-circle" style="width: 25px; height: 25px;">
+                                  <div class="progress-circle-value" style="--value: 90;"></div>
+                              </div>
+                          </div>
+                      </td>
+                      <td>
+                        <span class="badge rounded-pill" style="background-color: #FFDDBA; color: rgb(46, 46, 46);">Prospecto</span>
+                      </td>
+                      <td>
+                          <a class="btn btn-primary btn-sm" routerLink="/prospectodetalle" style="background-color: #1F3A93; border-color: #1F3A93;">Nueva Actividad</a>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>28/03/2024</td>
+                      <td>
+                          <div class="d-flex align-items-center">
+                              <div class="ms-3">
+                                  <p class="fw-bold mb-1">Ana Martínez</p>
+                              </div>
+                          </div>
+                      </td>
+                      <td>
+                          <span class="badge bg-light text-dark me-2">2</span>
+                          <i class="fas fa-phone  me-2" style="color:#4D75FA;"></i>
+                          <svg width="26" height="22" viewBox="0 0 44 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.3995 6.99988C26.7436 6.99988 30.7207 8.30173 33.6573 10.2928C36.5238 12.2365 38.7335 15.0966 38.7335 18.3134C38.7333 21.6115 36.4268 24.2137 33.5323 25.8798C30.5838 27.5768 26.6434 28.5634 22.3995 28.5634C20.4411 28.5633 17.997 28.0546 16.1661 27.5985C15.2243 27.3639 14.394 27.1305 13.7989 26.955C13.7085 26.9283 13.6234 26.9016 13.544 26.8778L8.83795 28.8456C8.09515 29.156 7.23819 28.9901 6.66412 28.4257C6.09027 27.8612 5.91032 27.0075 6.20807 26.2596L7.62897 22.6932C7.49328 22.4608 7.34123 22.1951 7.19049 21.9071C6.9422 21.4328 6.67502 20.8707 6.46588 20.2928C6.26749 19.7446 6.06654 19.0365 6.06647 18.3134C6.06647 15.0966 8.27603 12.2365 11.1426 10.2928C14.0791 8.30182 18.0556 6.99994 22.3995 6.99988Z" stroke="#5B81FD" stroke-width="4" stroke-linejoin="round"/>
+                          </svg>
+                      </td>
+                      <td>
+                          <div class="d-flex align-items-center gap-2">
+                              <span class="fw-bold">30%</span>
+                              <div class="progress-circle" style="width: 25px; height: 25px;">
+                                  <div class="progress-circle-value" style="--value: 30;"></div>
+                              </div>
+                          </div>
+                      </td>
+                      <td>
+                        <span class="badge rounded-pill" style="background-color: #FFDDBA; color: rgb(46, 46, 46);">Prospecto</span>
+                      </td>
+                      <td>
+                          <a class="btn btn-primary btn-sm" routerLink="/prospectodetalle" style="background-color: #1F3A93; border-color: #1F3A93;">Nueva Actividad</a>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>29/03/2024</td>
+                      <td>
+                          <div class="d-flex align-items-center">
+                              <div class="ms-3">
+                                  <p class="fw-bold mb-1">Roberto Sánchez</p>
+                              </div>
+                          </div>
+                      </td>
+                      <td>
+                          <span class="badge bg-light text-dark me-2">4</span>
+                          <i class="fas fa-phone  me-2" style="color:#4D75FA;"></i>
+                          <svg width="26" height="22" viewBox="0 0 44 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.3995 6.99988C26.7436 6.99988 30.7207 8.30173 33.6573 10.2928C36.5238 12.2365 38.7335 15.0966 38.7335 18.3134C38.7333 21.6115 36.4268 24.2137 33.5323 25.8798C30.5838 27.5768 26.6434 28.5634 22.3995 28.5634C20.4411 28.5633 17.997 28.0546 16.1661 27.5985C15.2243 27.3639 14.394 27.1305 13.7989 26.955C13.7085 26.9283 13.6234 26.9016 13.544 26.8778L8.83795 28.8456C8.09515 29.156 7.23819 28.9901 6.66412 28.4257C6.09027 27.8612 5.91032 27.0075 6.20807 26.2596L7.62897 22.6932C7.49328 22.4608 7.34123 22.1951 7.19049 21.9071C6.9422 21.4328 6.67502 20.8707 6.46588 20.2928C6.26749 19.7446 6.06654 19.0365 6.06647 18.3134C6.06647 15.0966 8.27603 12.2365 11.1426 10.2928C14.0791 8.30182 18.0556 6.99994 22.3995 6.99988Z" stroke="#5B81FD" stroke-width="4" stroke-linejoin="round"/>
+                          </svg>
+                      </td>
+                      <td>
+                        <div class="d-flex align-items-center gap-2">
+                          <span class="fw-bold">60%</span>
+                          <div class="progress-circle" style="width: 25px; height: 25px;">
+                            <div class="progress-circle-value" style="--value: 60; background-color: #c1c5c0;"></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <span class="badge rounded-pill" style="background-color: #FFDDBA; color: rgb(46, 46, 46);">Prospecto</span>
+                      </td>
+                      <td>
+                          <a class="btn btn-primary btn-sm" routerLink="/prospectodetalle" style="background-color: #1F3A93; border-color: #1F3A93;">Nueva Actividad</a>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+          
+          <!-- Paginador centrado -->
+          <div class="d-flex justify-content-center mt-4">
+              <nav aria-label="Page navigation">
+                  <ul class="pagination mb-0">
+                      <li class="page-item">
+                          <a class="page-link" href="/prospectos" aria-label="Previous">
+                              <i class="fas fa-chevron-left"></i> Previo
+                          </a>
+                      </li>
+                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="/prospectos">2</a></li>
+                      <li class="page-item"><a class="page-link"href="/prospectos">3</a></li>
+                      <li class="page-item disabled"><a class="page-link" href="/prospectos">...</a></li>
+                      <li class="page-item"><a class="page-link" href="/prospectos">67</a></li>
+                      <li class="page-item"><a class="page-link" href="/prospectos">68</a></li>
+                      <li class="page-item">
+                          <a class="page-link" href="/prospectos" aria-label="Next">
+                              Siguiente <i class="fas fa-chevron-right"></i>
+                          </a>
+                      </li>
+                  </ul>
+              </nav>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Estilos CSS necesarios -->
+<style>
+.progress-circle {
+  position: relative;
+  border-radius: 50%;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-circle-value {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(#1F3A93 calc(var(--value) * 1%), transparent 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.progress-circle-value::before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background: white;
+}
+
+.search-input-bootstrap {
+  border: 1.5px solid #2046b3 !important;
+  border-radius: 999px !important;
+  padding-right: 2.5rem !important;
+  color: #2046b3;
+  box-shadow: none !important;
+}
+
+.search-input-bootstrap::placeholder {
+  color: #7a8bb3;
+  opacity: 1;
+}
+
+.search-clear-bootstrap {
+  color: #2046b3;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+</style>
+

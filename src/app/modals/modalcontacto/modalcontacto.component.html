@@ -136,83 +136,116 @@
 <div *ngIf="canalActivo === 'llamada'">
   <div class="mb-3">
     <label class="form-label fw-semibold">Interacción</label>
-    <textarea class="form-control" rows="3" placeholder="Resultado de la Interacción..."></textarea>
+    <textarea class="form-control" rows="3" placeholder="Resultado de la Interacción..."
+      [(ngModel)]="interaccionLlamada"></textarea>
+    <div *ngIf="mostrarErrores && !interaccionLlamada" class="text-danger small mt-1">
+      Campo requerido
+    </div>
   </div>
   <div class="mb-3">
     <label class="form-label fw-semibold">Resultado</label>
-    <textarea class="form-control" rows="2" placeholder="Resultado de la Llamada..."></textarea>
+    <textarea class="form-control" rows="2" placeholder="Resultado de la Llamada..."
+      [(ngModel)]="resultadoLlamada"></textarea>
+    <div *ngIf="mostrarErrores && !resultadoLlamada" class="text-danger small mt-1">
+      Campo requerido
+    </div>
   </div>
   <div class="mb-4" style="width: 200px;">
     <label class="form-label fw-semibold">Estado de la actividad</label>
-    <select class="form-select">
+    <select class="form-select" [(ngModel)]="estadoLlamada">
+      <option value="">Seleccione...</option>
       <option value="exitosa">Exitosa</option>
       <option value="pendiente">Pendiente</option>
       <option value="fallida">Fallida</option>
     </select>
+    <div *ngIf="mostrarErrores && !estadoLlamada" class="text-danger small mt-1">
+      Campo requerido
+    </div>
   </div>
 </div>
 
 <div *ngIf="canalActivo === 'correo'">
   <div class="mb-3">
     <label class="form-label fw-semibold">Interacción</label>
-    <textarea class="form-control" rows="3" placeholder="Asunto de la Interacción..."></textarea>
+    <textarea class="form-control" rows="3" placeholder="Asunto de la Interacción..."
+      [(ngModel)]="interaccionCorreo"></textarea>
+    <div *ngIf="mostrarErrores && !interaccionCorreo" class="text-danger small mt-1">
+      Campo requerido
+    </div>
   </div>
   <div class="mb-3">
     <label class="form-label fw-semibold">Resultado</label>
-    <textarea class="form-control" rows="2" placeholder="Contenido del Resultado..."></textarea>
+    <textarea class="form-control" rows="2" placeholder="Contenido del Resultado..."
+      [(ngModel)]="resultadoCorreo"></textarea>
+    <div *ngIf="mostrarErrores && !resultadoCorreo" class="text-danger small mt-1">
+      Campo requerido
+    </div>
   </div>
   <div class="mb-4" style="width: 200px;">
     <label class="form-label fw-semibold">Estado de la actividad</label>
-    <select class="form-select">
+    <select class="form-select" [(ngModel)]="estadoCorreo">
+      <option value="">Seleccione...</option>
       <option value="en_espera">En Espera</option>
       <option value="enviado">Enviado</option>
       <option value="fallido">Fallido</option>
     </select>
+    <div *ngIf="mostrarErrores && !estadoCorreo" class="text-danger small mt-1">
+      Campo requerido
+    </div>
   </div>
 </div>
 
 <div *ngIf="canalActivo === 'instagram'">
   <div class="mb-3">
     <label class="form-label fw-semibold">Interacción</label>
-    <textarea class="form-control" rows="3" placeholder="Contenido de la Interaccion..."></textarea>
+    <textarea class="form-control" rows="3" placeholder="Contenido de la Interaccion..."
+      [(ngModel)]="interaccionInstagram"></textarea>
   </div>
   <div class="mb-3">
     <label class="form-label fw-semibold">Resultado</label>
-    <textarea class="form-control" rows="2" placeholder="Contenido del Resultado..."></textarea>
+    <textarea class="form-control" rows="2" placeholder="Contenido del Resultado..."
+      [(ngModel)]="resultadoInstagram"></textarea>
   </div>
   <div class="mb-4" style="width: 200px;">
     <label class="form-label fw-semibold">Estado de la actividad</label>
-    <select class="form-select">
-      <option value="en_espera">En Espera</option>
-      <option value="enviado">Enviado</option>
-      <option value="fallido">Fallido</option>
-    </select>
+    <select class="form-select" [(ngModel)]="estadoInstagram">
+        <option value="">Seleccione...</option>
+        <option value="exitosa">Exitosa</option>
+        <option value="pendiente">Pendiente</option>
+        <option value="fallida">Fallida</option>
+      </select>
   </div>
 </div>
 
 <div *ngIf="canalActivo === 'facebook'">
   <div class="mb-3">
     <label class="form-label fw-semibold">Interacción</label>
-    <textarea class="form-control" rows="2" placeholder="Contenido de la Interaccion..."></textarea>
+    <textarea class="form-control" rows="2" placeholder="Contenido de la Interaccion..."
+      [(ngModel)]="interaccionFacebook"></textarea>
   </div>
   <div class="mb-3">
     <label class="form-label fw-semibold">Resultado</label>
-    <textarea class="form-control" rows="3" placeholder="Contenido del Resultado..."></textarea>
+    <textarea class="form-control" rows="3" placeholder="Contenido del Resultado..."
+      [(ngModel)]="resultadoFacebook"></textarea>
   </div>
   <div class="mb-4" style="width: 200px;">
     <label class="form-label fw-semibold">Estado de la actividad</label>
-    <select class="form-select">
-      <option value="en_espera">En Espera</option>
-      <option value="enviado">Enviado</option>
-      <option value="fallido">Fallido</option>
-    </select>
+    <select class="form-select" [(ngModel)]="estadoFacebook">
+        <option value="">Seleccione...</option>
+        <option value="exitosa">Exitosa</option>
+        <option value="pendiente">Pendiente</option>
+        <option value="fallida">Fallida</option>
+      </select>
   </div>
 </div>
 
 <!-- Botones -->
 <div class="d-flex justify-content-end gap-2">
   <button class="btn btn-light border fw-bold px-4" data-bs-dismiss="modal">Cancelar</button>
-  <button class="btn btn-primary fw-bold px-4" style="background-color: #253b8a;">
+  <button class="btn btn-primary fw-bold px-4"
+    style="background-color: #253b8a;"
+    [disabled]="!camposValidos()"
+    (click)="guardar()">
     Guardar <i class="fas fa-save ms-2"></i>
   </button>
 </div>

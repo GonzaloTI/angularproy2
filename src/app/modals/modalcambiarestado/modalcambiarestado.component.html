@@ -8,7 +8,15 @@
       <div class="col-md-7">
         <div class="mb-3">
           <label class="form-label fw-semibold">Detalles</label>
-          <textarea class="form-control" rows="9" placeholder="Informacion Relevante"></textarea>
+          <textarea class="form-control"
+            rows="9"
+            placeholder="Informacion Relevante"
+            [(ngModel)]="detalles"
+            (input)="validarDetalles($event)">
+          </textarea>
+          <div *ngIf="caracterNoPermitido" class="text-danger mt-1">
+            Caracter no admitido: <b>{{ caracterInvalido }}</b>
+          </div>
         </div>
       </div>
       <!-- Lado derecho -->
@@ -58,7 +66,9 @@
     <!-- Botones -->
     <div class="d-flex justify-content-end gap-2 mt-3">
       <button type="button" class="btn btn-light border fw-bold px-4" data-bs-dismiss="modal">Cancelar</button>
-      <button type="submit" class="btn btn-primary fw-bold px-4" style="background-color: #253b8a;">
+      <button type="submit" class="btn btn-primary fw-bold px-4"
+        style="background-color: #253b8a;"
+        [disabled]="caracterNoPermitido || !detalles">
         Guardar Registro <i class="fas fa-save ms-2"></i>
       </button>
     </div>

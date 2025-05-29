@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';  // Importa Title
+import { StatusBadgeComponent } from '../status-badge/status-badge.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-prospectolist',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './prospectolist.component.html',
   styleUrls: ['./prospectolist.component.css']
 })

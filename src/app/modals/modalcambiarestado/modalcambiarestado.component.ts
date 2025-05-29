@@ -36,4 +36,29 @@ export class ModalcambiarestadoComponent {
       this.interesesActuales.push(this.interesSeleccionado);
     }
   }
+
+
+  detalles: string = '';
+  caracterNoPermitido: boolean = false;
+  caracterInvalido: string = '';
+  
+  private regexPermitido = /^[a-zA-Z0-9\s.,@_\-ñÑáéíóúÁÉÍÓÚ]*$/;
+  
+  validarDetalles(event: any) {
+    const valor = event.target.value;
+    // Busca el primer caracter no permitido
+    const match = valor.match(/[^a-zA-Z0-9\s.,@_\-ñÑáéíóúÁÉÍÓÚ]/);
+    if (match) {
+      this.caracterNoPermitido = true;
+      this.caracterInvalido = match[0];
+      // Elimina el caracter no permitido
+      this.detalles = valor.replace(/[^a-zA-Z0-9\s.,@_\-ñÑáéíóúÁÉÍÓÚ]/g, '');
+    } else {
+      this.caracterNoPermitido = false;
+      this.caracterInvalido = '';
+      this.detalles = valor;
+    }
+  }
+
+
 }

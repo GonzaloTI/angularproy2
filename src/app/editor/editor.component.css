@@ -1,0 +1,9 @@
+::ng-deep ngx-editor .NgxEditor__Content {
+    min-height: 320px; /* Ajusta esto a lo que quieras */
+    max-height: 300px;   /* Altura máxima fija */
+    overflow-y: auto;    /* Scroll vertical cuando sobrepasa la altura */
+    /* Opcional para que se vea mejor */
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 6px;
+}

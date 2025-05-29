@@ -2,11 +2,12 @@ import { Component, Input } from '@angular/core';
 import { StatusBadgeComponent } from '../../status-badge/status-badge.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { EditorComponent } from '../../editor/editor.component';
 
 @Component({
   selector: 'app-negociacion-detalle',
   standalone: true,
-  imports: [ StatusBadgeComponent, CommonModule, FormsModule ],
+  imports: [ StatusBadgeComponent, CommonModule, FormsModule, EditorComponent ],
   templateUrl: './negociacion-detalle.component.html',
   styleUrl: './negociacion-detalle.component.css'
 })
@@ -25,7 +26,7 @@ export class NegociacionDetalleComponent {
     'Peacock',
   ];
   
-  promoSeleccionada: number | null = null;
+  promoSeleccionada: number | null = 0; // <-- seleccionado por defecto el primero
   
   seleccionarPromo(index: number) {
     this.promoSeleccionada = index;

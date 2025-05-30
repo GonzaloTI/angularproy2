@@ -5,7 +5,8 @@ import { TemplatesComponent } from './pages/templates/templates.component';
 import { ProspectodetalleComponent } from './prospectodetalle/prospectodetalle.component';
 import { NegociacionDetalleComponent } from './pages/negociacion-detalle/negociacion-detalle.component';
 import { NegociacionComponent } from './pages/negociacion/negociacion.component';
-
+import { SuscripcionlistComponent } from './suscripcionlist/suscripcionlist.component';
+import {SuscripciondetalleComponent} from './suscripciondetalle/suscripciondetalle.component';
 export const routes: Routes = [
     { path: '', component: HomeComponent }, // si quieres mostrar AppComponent en la raíz
     { path: 'prospectos', component: ProspectolistComponent }, // nueva página
@@ -13,5 +14,7 @@ export const routes: Routes = [
     { path: 'prospectodetalle', component: ProspectodetalleComponent }, // nueva página
     { path: 'negociacion-detalle', component: NegociacionDetalleComponent }, // nueva página
     { path: 'negociacion', component: NegociacionComponent }, // nueva página
+    { path: 'suscriptores', component: SuscripcionlistComponent }, // nueva página
+    { path: 'suscriptordetalle', component: SuscripciondetalleComponent }, // nueva página
 
   ];
